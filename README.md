@@ -1,0 +1,2 @@
+# Lyralearning
+使用AngleScriptEngine|学习Lyra的ShooterCore|并拓展自己的RPGCore|
