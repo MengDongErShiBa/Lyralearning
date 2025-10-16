@@ -17,7 +17,7 @@ void UElimChainProcessor::StartListening()
 {
 	// 将自己注册到消息系统
 	UGameplayMessageSubsystem& MessageSubsystem = UGameplayMessageSubsystem::Get(this);
-	// 
+	// 添加到监听列表|并持有FGameplayMessageListenerHandle|在EndPlay中自动移除
 	AddListenerHandle(MessageSubsystem.RegisterListener(ElimChain::TAG_Lyra_Elimination_Message, this, &ThisClass::OnEliminationMessage));
 }
 

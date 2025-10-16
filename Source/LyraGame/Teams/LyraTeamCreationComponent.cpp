@@ -92,8 +92,22 @@ void ULyraTeamCreationComponent::ServerChooseTeamForPlayer(ALyraPlayerState* PS)
 	}
 	else
 	{
-		const FGenericTeamId TeamID = IntegerToGenericTeamId(GetLeastPopulatedTeamID());
-		PS->SetGenericTeamId(TeamID);
+
+		// vvshwang addcode
+		if (PS->IsABot())
+		{
+			// 机器人固定分配到此队伍
+			PS->SetGenericTeamId(IntegerToGenericTeamId(2));
+		}
+		else
+		{
+			// 玩家固定分配到此队伍
+			PS->SetGenericTeamId(IntegerToGenericTeamId(1));
+		}
+		
+		// 原生的队伍逻辑，分配队伍ID
+		// const FGenericTeamId TeamID = IntegerToGenericTeamId(GetLeastPopulatedTeamID());
+		// PS->SetGenericTeamId(TeamID);
 	}
 }
 
