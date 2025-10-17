@@ -23,7 +23,8 @@ public:
 
 	UTDM_PlayerSpawningManagmentComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual AActor* OnChoosePlayerStart(AController* Player, TArray<ALyraPlayerStart*>& PlayerStarts) override;
+	UFUNCTION(BlueprintImplementableEvent, meta=(DisplayName="选择PlayerStart"))
+	AActor* OnChoosePlayerStart(AController* Player, const TArray<ALyraPlayerStart*>& PlayerStarts) override;
 	virtual void OnFinishRestartPlayer(AController* Player, const FRotator& StartRotation) override;
 
 protected:
